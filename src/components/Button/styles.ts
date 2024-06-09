@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom'
 
 import { cores } from '../../styles'
 
-export const ButtonContainer = styled.button`
-  border: 2px solid ${cores.branca};
-  background-color: transparent;
+import { Props } from '.'
+
+export const ButtonContainer = styled.button<Props>`
+  border: 2px solid
+    ${(props) => (props.variant === 'primary' ? cores.verde : cores.branca)};
+  background-color: ${(props) =>
+    props.variant === 'primary' ? cores.verde : 'transparent'};
   color: ${cores.branca};
   font-size: 16px;
   font-weight: bold;
