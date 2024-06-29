@@ -30,6 +30,7 @@ const Categories = () => {
       </>
     )
   }
+  return <h4>Carregando</h4>
 }
 
 export default Categories
