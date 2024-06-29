@@ -10,26 +10,43 @@ import {
 
 const Categories = () => {
   const { data: actionGames } = useGetActionGamesQuery()
-  const { data: sportsGames } = useGetSportsGamesQuery()
-  const { data: simulationGames } = useGetSimulationGamesQuery()
   const { data: fightGames } = useGetFightGamesQuery()
   const { data: rpgGames } = useGetRPGGamesQuery()
+  const { data: simulationGames } = useGetSimulationGamesQuery()
+  const { data: sportGames } = useGetSportsGamesQuery()
 
-  if (actionGames && sportsGames && simulationGames && fightGames && rpgGames) {
+  if (actionGames && fightGames && rpgGames && simulationGames && sportGames) {
     return (
       <>
-        <ProductsList games={actionGames} title="Ação" background="black" />
-        <ProductsList games={sportsGames} title="Esportes" background="gray" />
-        <ProductsList games={fightGames} title="Luta" background="black" />
-        <ProductsList games={rpgGames} title="RPG" background="gray" />
+        <ProductsList
+          games={actionGames}
+          title="Ação"
+          background="black"
+          id="action"
+        />
+        <ProductsList
+          games={sportGames}
+          title="Esportes"
+          background="gray"
+          id="sports"
+        />
+        <ProductsList
+          games={fightGames}
+          title="Luta"
+          background="black"
+          id="fight"
+        />
+        <ProductsList games={rpgGames} title="RPG" background="gray" id="rpg" />
         <ProductsList
           games={simulationGames}
           title="Simulação"
           background="black"
+          id="simulation"
         />
       </>
     )
   }
+
   return <h4>Carregando</h4>
 }
 
