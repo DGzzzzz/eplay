@@ -13,11 +13,9 @@ type PurchasePayload = {
     email: string
     document: string
   }
-
   delivery: {
     email: string
   }
-
   payment: {
     card: {
       active: boolean
@@ -28,13 +26,17 @@ type PurchasePayload = {
       name?: string
       number?: string
       expires?: {
-        month: string
-        year: string
+        month: number
+        year: number
       }
-      code?: string
+      code?: number
     }
     installments: number
   }
+}
+
+type PurchaseResponse = {
+  orderId: string
 }
 
 const api = createApi({
@@ -54,7 +56,7 @@ const api = createApi({
     getActionGames: builder.query<Game[], void>({
       query: () => 'acao'
     }),
-    getSportsGames: builder.query<Game[], void>({
+    getSportGames: builder.query<Game[], void>({
       query: () => 'esportes'
     }),
     getSimulationGames: builder.query<Game[], void>({
@@ -63,15 +65,15 @@ const api = createApi({
     getFightGames: builder.query<Game[], void>({
       query: () => 'luta'
     }),
-    getRPGGames: builder.query<Game[], void>({
+    getRpgGames: builder.query<Game[], void>({
       query: () => 'rpg'
     }),
     getGame: builder.query<Game, string>({
       query: (id) => `jogos/${id}`
     }),
-    purchase: builder.mutation<any, PurchasePayload>({
+    purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
-        url: 'comprar',
+        url: 'checkout',
         method: 'POST',
         body
       })
@@ -81,14 +83,15 @@ const api = createApi({
 
 export const {
   useGetFeaturedGameQuery,
-  useGetOnSaleQuery,
   useGetSoonQuery,
+  useGetOnSaleQuery,
   useGetActionGamesQuery,
-  useGetFightGamesQuery,
-  useGetRPGGamesQuery,
+  useGetSportGamesQuery,
   useGetSimulationGamesQuery,
-  useGetSportsGamesQuery,
+  useGetFightGamesQuery,
+  useGetRpgGamesQuery,
   useGetGameQuery,
   usePurchaseMutation
 } = api
+
 export default api
