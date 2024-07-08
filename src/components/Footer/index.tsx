@@ -11,7 +11,7 @@ const Footer = () => (
           <li>
             <S.Link
               title="Clique aqui para acessar jogos de RPG"
-              to="/categorias#rpg"
+              to="/categories#rpg"
             >
               RPG
             </S.Link>
@@ -19,7 +19,7 @@ const Footer = () => (
           <li>
             <S.Link
               title="Clique aqui para acessar jogos de Ação"
-              to="/categorias#action"
+              to="/categories#action"
             >
               Ação
             </S.Link>
@@ -27,7 +27,7 @@ const Footer = () => (
           <li>
             <S.Link
               title="Clique aqui para acessar jogos de Esportes"
-              to="/categorias#sports"
+              to="/categories#sports"
             >
               Esportes
             </S.Link>
@@ -35,7 +35,7 @@ const Footer = () => (
           <li>
             <S.Link
               title="Clique aqui para acessar jogos de Simulação"
-              to="/categorias#simulation"
+              to="/categories#simulation"
             >
               Simulação
             </S.Link>
@@ -43,7 +43,7 @@ const Footer = () => (
           <li>
             <S.Link
               title="Clique aqui para acessar jogos de Luta"
-              to="/categorias#fight"
+              to="/categories#fight"
             >
               Luta
             </S.Link>
