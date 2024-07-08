@@ -7,7 +7,7 @@ declare type Game = {
   id: number
   name: string
   description: string
-  realese_date?: string
+  release_date?: string
   prices: {
     discount?: number
     old?: number
